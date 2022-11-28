@@ -4,8 +4,7 @@ public class StudentProfile {
     double studentGPA;
     int expectedYearToGraduate;
 
-    public StudentProfile(String studentFirstName, String studentLastName,
-                          double studentGPA, int expectedYearToGraduate){
+    public StudentProfile(String studentFirstName, String studentLastName, double studentGPA, int expectedYearToGraduate) {
         this.studentFirstName = studentFirstName;
         this.studentLastName = studentLastName;
         this.studentGPA = studentGPA;
@@ -17,7 +16,7 @@ public class StudentProfile {
     }
 
     public static void main(String[] args) {
-        StudentProfile studentA = new StudentProfile("Nandini","Jadhav",3.45,2018);
+        StudentProfile studentA = new StudentProfile("Nandini", "Jadhav", 3.45, 2018);
         StudentProfile studentB = new StudentProfile("Shil", "Jadhav", 4.56, 2018);
 
         System.out.println("Profile of StudentA");
@@ -37,5 +36,5 @@ public class StudentProfile {
     }
 
 
-    }
+}
 
