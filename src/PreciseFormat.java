@@ -5,7 +5,7 @@ public class PreciseFormat {
     public static void printPreciseFormat(float a, float b){
         float result = a/b;
         System.out.print(result);
-        System.out.format(" %.3f",result);
+        System.out.format(" %.3 f",result);
     }
 
     public static void main(String[] args) {

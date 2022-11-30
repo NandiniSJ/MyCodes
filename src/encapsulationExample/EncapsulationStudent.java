@@ -1,4 +1,4 @@
-package EncapsulationExample;
+package encapsulationExample;
 
 class EncapsulationStudent {
 

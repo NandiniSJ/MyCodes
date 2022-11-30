@@ -1,7 +1,10 @@
-package EncapsulationExample;
+package encapsulationExample;
 
 public class EncapsulationMainClass {
 
+    int fun1(){
+        return 1;
+    }
     public static void main(String[] args) {
         EncapsulationStudent student1 = new EncapsulationStudent();
 
