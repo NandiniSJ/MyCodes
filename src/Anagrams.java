@@ -45,6 +45,7 @@ public class Anagrams {
             }else{
                 characterB.put(currentChar, 1);
             }
+
         }
 
         return characterA.equals(characterB);
