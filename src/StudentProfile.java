@@ -1,4 +1,7 @@
-public class StudentProfile {
+import java.util.*;
+import java.util.Collections;
+
+public class StudentProfile implements  Comparable<StudentProfile>{
     String studentFirstName;
     String studentLastName;
     double studentGPA;
@@ -33,8 +36,18 @@ public class StudentProfile {
         studentA.incrementExpectedYearToGraduate();
 
         System.out.println(studentA.expectedYearToGraduate);
+        Collections.sort(List.of(studentA, studentB), new Comparator<StudentProfile>() {
+            @Override
+            public int compare(StudentProfile o1, StudentProfile o2) {
+                return Double.compare(o1.studentGPA, o2.studentGPA);
+            }
+        });
     }
 
 
+    @Override
+    public int compareTo(StudentProfile o) {
+        return studentFirstName.compareTo(o.studentFirstName);
+    }
 }
 

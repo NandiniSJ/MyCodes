@@ -1,6 +1,5 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.List;
+import java.util.*;
+
 public class ArmstrongNumber {
 
     public static List<Integer> findArmstrongNumber(int x, int y){
@@ -26,6 +25,12 @@ public class ArmstrongNumber {
         System.out.println("Enter two integers: ");
         int num1 = scanner.nextInt();
         int num2 = scanner.nextInt();
+        Collections.sort(List.of("Nandini"), new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return Integer.compare(o1.length(), o2.length());
+            }
+        });
         System.out.println(findArmstrongNumber(num1, num2));
     }
 }

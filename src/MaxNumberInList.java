@@ -6,19 +6,19 @@ import java.util.Scanner;
 public class MaxNumberInList {
 
     //write one function which accept list of integers as parameter and return Max element in the list
+        public static int findLargestNum(int[]array){
+            int largestNum = array[0];
+            for(int i = 0 ; i < array.length ; i++){
+                if(array[i]>largestNum){
+                    largestNum = array[i];
+                }
+            }
+            return largestNum;
+        }
 
-    public static int findMAxNumber(List<Integer> numbers){
-        int maxNum= numbers.get(0);
-       for(int i=0; i<numbers.size(); i++){
-           if(numbers.get(i)>maxNum){
-               maxNum = numbers.get(i);
-           }
-       }
-       return maxNum;
-    }
+        public static void main(String[] args){
+            int [] array = {7,8,6,4,9,3,2,10,46};
+            System.out.println(findLargestNum(array));
+        }
 
-    public static void main(String[] args) {
-        List<Integer> numbers = List.of(-2,-3,-6,-8,-9,-4);
-        System.out.println(findMAxNumber(numbers));
-    }
 }
