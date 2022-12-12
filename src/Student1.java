@@ -1,38 +1,37 @@
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
 
 
-public class StudentComparator implements Comparable<StudentComparator>{
+public class Student1 implements Comparable<Student1>{
 
     int rollNum;
     String name;
     Double GPA;
 
-    public StudentComparator(int rollNum, String name, Double GPA){
+    public Student1(int rollNum, String name, Double GPA){
         this.rollNum = rollNum;
         this.name = name;
         this.GPA = GPA;
     }
 
     public static void main(String[] args) {
-        ArrayList<StudentComparator> students = new ArrayList<StudentComparator>();
-        students.add(new StudentComparator(1, "Nandini", 3.45));
-        students.add(new StudentComparator(2,"Shil", 4.56));
-        students.add(new StudentComparator(3,"Rubby", 6.78));
+        ArrayList<Student1> students = new ArrayList<Student1>();
+        students.add(new Student1(1, "Nandini", 3.45));
+        students.add(new Student1(2,"Shil", 4.56));
+        students.add(new Student1(3,"Rubby", 6.78));
 
-        Collections.sort(students, new Comparator<StudentComparator>() {
+        Collections.sort(students, new Comparator<Student1>() {
             @Override
-            public int compare(StudentComparator o1, StudentComparator o2) {
+            public int compare(Student1 o1, Student1 o2) {
                 return o1.name.compareTo(o2.name);
             }
         });
         System.out.println(students);
-        Collections.sort(students, new Comparator<StudentComparator>() {
+        Collections.sort(students, new Comparator<Student1>() {
             @Override
-            public int compare(StudentComparator o1, StudentComparator o2) {
+            public int compare(Student1 o1, Student1 o2) {
                 return o1.rollNum-o2.rollNum;
             }
         });
@@ -50,7 +49,7 @@ public class StudentComparator implements Comparable<StudentComparator>{
     }
 
     @Override
-    public int compareTo(StudentComparator o) {
+    public int compareTo(Student1 o) {
         return rollNum - o.rollNum;
     }
 }
