@@ -1,9 +1,6 @@
 package employeeDB;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class EmployeeApplication {
@@ -115,6 +112,28 @@ public class EmployeeApplication {
 
     }
 
+    public List<Employee> sortEmployee(List<Employee> employees){
+//        List<Employee> maleEmployees = new ArrayList<>();
+//        for (int i = 0; i < employees.size(); i++) {
+//           if(employees.get(i).getGender() == Gender.MALE){
+//              maleEmployees.add(employees.get(i));
+//           }
+//        }
+//        maleEmployees.sort((o1, o2) -> {
+//            if (o1.getAge() == o2.getAge()) {
+//                return o1.getName().compareTo(o2.getName());
+//            } else {
+//                return Integer.compare(o1.getAge(), o2.getAge());
+//            }
+//        });
+//        return maleEmployees;
+        return employees.stream()
+                .filter(employee -> employee.getGender().equals(Gender.MALE))
+                .sorted(Comparator.comparing(Employee::getAge)
+                        .thenComparing(Employee::getName))
+                .collect(Collectors.toList());
+    }
+
     public static void main(String[] args) {
         List<Employee> employees = List.of(
                 new Employee("Shilkumar J", 28, Gender.MALE, "Software Developer","Merchant lending"),
@@ -129,7 +148,8 @@ public class EmployeeApplication {
 //        System.out.println(employeeApplication.getAvgAgeByGender(Gender.FEMALE));
 //        System.out.println(employeeApplication.getAvgAgeByDesignation("Software Developer"));
 //        System.out.println(employeeApplication.groupByGender());
-        System.out.println(employeeApplication.groupByAgeGroup());
+//          System.out.println(employeeApplication.groupByAgeGroup());
+        System.out.println(employeeApplication.sortEmployee(employees));
 
     }
 }

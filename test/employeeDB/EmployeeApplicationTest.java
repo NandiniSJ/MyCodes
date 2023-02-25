@@ -82,4 +82,22 @@ class EmployeeApplicationTest {
 
     }
 
+    @Test
+    void shouldSortMaleEmployeeByAge(){
+        List<Employee> employees = List.of(
+                new Employee("Shilkumar J", 28, Gender.MALE, "Software Developer","Merchant lending"),
+                new Employee("Nandini J", 25, Gender.FEMALE, "Software Developer","GoFood"),
+                new Employee("Parth J", 20, Gender.MALE, "Software Developer","GoFood"),
+                new Employee("Pratik J", 25, Gender.MALE, "Business Analyst","Merchant lending"),
+                new Employee("Pranav J", 25, Gender.MALE, "Project Manager","Merchant lending"),
+                new Employee("Piyusha J", 30, Gender.FEMALE, "Business Analyst","GoFood")
+        );
+
+        EmployeeApplication employeeApplication = new EmployeeApplication(employees);
+        List<Employee> maleEmployee = employeeApplication.sortEmployee(employees);
+
+        assertEquals("Pranav J", maleEmployee.get(1).getName());
+        assertEquals(28, maleEmployee.get(3).getAge());
+    }
+
 }
