@@ -147,6 +147,17 @@ public class EmployeeApplication {
                 .collect(Collectors.toList());
     }
 
+    public Map<String, Integer> countEmployeeByDept(List<Employee> employees){
+        return employees.stream()
+                .collect(Collectors.groupingBy(employee -> employee.getDepartment()))
+                .entrySet()
+                .stream()
+                .map(entry -> Map.entry(entry.getKey(), entry.getValue().size()))
+                .collect(Collectors.toMap(entry -> entry.getKey(), entry -> entry.getValue()));
+    }
+
+
+
     public static void main(String[] args) {
         List<Employee> employees = List.of(
                 new Employee("Shilkumar J", 28, Gender.MALE, "Software Developer","Merchant lending"),
@@ -160,10 +171,11 @@ public class EmployeeApplication {
 //        System.out.println(employeeApplication.getAverageAge());
 //        System.out.println(employeeApplication.getAvgAgeByGender(Gender.FEMALE));
 //        System.out.println(employeeApplication.getAvgAgeByDesignation("Software Developer"));
-//        System.out.println(employeeApplication.groupByGender());
+//       System.out.println(employeeApplication.groupByGender());
 //          System.out.println(employeeApplication.groupByAgeGroup());
         //System.out.println(employeeApplication.sortEmployee(employees));
 
-        System.out.println(employeeApplication.getByDepartment(employees,"GoFood"));
+        //System.out.println(employeeApplication.getByDepartment(employees,"GoFood"));
+        System.out.println(employeeApplication.countEmployeeByDept(employees));
     }
 }

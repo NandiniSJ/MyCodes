@@ -116,8 +116,24 @@ class EmployeeApplicationTest {
 
         assertEquals(goFoodEmployees.size(), 3);
         assertEquals(goFoodEmployees.get(0).getName(), "Nandini J");
+    }
 
+    @Test
+    void shouldCountEmployeeByTheirDept(){
+        List<Employee> employees = List.of(
+                new Employee("Shilkumar J", 28, Gender.MALE, "Software Developer","Merchant lending"),
+                new Employee("Nandini J", 25, Gender.FEMALE, "Software Developer","GoFood"),
+                new Employee("Parth J", 20, Gender.MALE, "Software Developer","GoFood"),
+                new Employee("Pratik J", 25, Gender.MALE, "Business Analyst","Merchant lending"),
+                new Employee("Pranav J", 25, Gender.MALE, "Project Manager","Merchant lending"),
+                new Employee("Piyusha J", 30, Gender.FEMALE, "Business Analyst","GoFood")
+        );
 
+        EmployeeApplication employeeApplication = new EmployeeApplication(employees);
+        Map<String, Integer> employeeCount = employeeApplication.countEmployeeByDept(employees);
+
+        assertEquals(3,employeeCount.get("Merchant lending"));
+        assertEquals(3,employeeCount.get("GoFood"));
     }
 
 }
