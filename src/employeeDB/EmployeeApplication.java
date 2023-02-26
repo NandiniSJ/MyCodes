@@ -134,6 +134,19 @@ public class EmployeeApplication {
                 .collect(Collectors.toList());
     }
 
+    public List<Employee> getByDepartment(List<Employee> employees, String department){
+//        List<Employee> employeeListByDept = new ArrayList<>();
+//        for(int i = 0; i< employees.size(); i++){
+//            if(employees.get(i).getDepartment().equals(department)){
+//                employeeListByDept.add(employees.get(i));
+//            }
+//        }
+//        return employeeListByDept;
+       return employees.stream()
+                .filter(employee -> employee.getDepartment().equals(department))
+                .collect(Collectors.toList());
+    }
+
     public static void main(String[] args) {
         List<Employee> employees = List.of(
                 new Employee("Shilkumar J", 28, Gender.MALE, "Software Developer","Merchant lending"),
@@ -149,7 +162,8 @@ public class EmployeeApplication {
 //        System.out.println(employeeApplication.getAvgAgeByDesignation("Software Developer"));
 //        System.out.println(employeeApplication.groupByGender());
 //          System.out.println(employeeApplication.groupByAgeGroup());
-        System.out.println(employeeApplication.sortEmployee(employees));
+        //System.out.println(employeeApplication.sortEmployee(employees));
 
+        System.out.println(employeeApplication.getByDepartment(employees,"GoFood"));
     }
 }
